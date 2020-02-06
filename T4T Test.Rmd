@@ -34,3 +34,13 @@ head(tippie)
 
 
 ```
+
+
+### let's start analysis on **fish** *data* ***yo***
+
+```{r}
+
+
+
+```
+
