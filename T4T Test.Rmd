@@ -32,7 +32,12 @@ head(wonder_woman)
 tippie <- rawdata[rawdata$SPP == "lat",]
 head(tippie)
 
+#there were unnecesary rows
+rawdata <- rawdata[-c(11:987),]
 
+cleandata <-rawdata[rawdata$SPP == "lat", "form"]
+
+cleandata <- rawdata[rawdata$SPP == "form" "lat"]
 ```
 
 
@@ -40,7 +45,41 @@ head(tippie)
 
 ```{r}
 
+"total sections" <- rowSums(rawdata[5:14])
+
+cbind(rawdata)
+
+head(rawdata)
+
+rawdata2 <- "rawdata"(-c[11:987])
+
+#going to sum up total counts for each fish
+
+rowSums(rawdata[5:14])
+total_count <- rowSums(rawdata[5:14])
+
+rowSums(rawdata[5:14])
+
+tippie <- cbind(tippie, rowSums(tippie[5:14]))
+wonder_woman <- cbind(wonder_woman, rowSums(wonder_woman[5:14]))
+
+newdata1 <- cbind(rawdata, rowSums(rawdata[5:14]))
+
+#now to find the average count of each fish
+
+section_average_fish <- function(section_avg) {section_avg/10}
+
+lat_fish_average <- section_average_fish(tippie$`rowSums(tippie[5:14])`)
+
+tippie2 <- cbind(tippie, lat_fish_average)
+#ignore tippie2, test to see if function would work
+tippie <- cbind(tippie, lat_fish_average)
+
+form_fish_average <- section_average_fish(wonder_woman$`rowSums(wonder_woman[5:14])`)
+
+wonder_woman <- cbind(wonder_woman, form_fish_average)
+
+#now to calculate average time spent in each section across the whole species
 
 
 ```
-
