@@ -81,5 +81,10 @@ wonder_woman <- cbind(wonder_woman, form_fish_average)
 
 #now to calculate average time spent in each section across the whole species
 
+mean(tippie$SEC1)
 
-```
+tippie2 <- rbind(tippie2, lapply(tippie2[5:14], mean(x)))
+
+                 
+                 
+ ```
