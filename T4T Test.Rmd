@@ -35,9 +35,7 @@ head(tippie)
 #there were unnecesary rows
 rawdata <- rawdata[-c(11:987),]
 
-cleandata <-rawdata[rawdata$SPP == "lat", "form"]
 
-cleandata <- rawdata[rawdata$SPP == "form" "lat"]
 ```
 
 
@@ -50,8 +48,6 @@ cleandata <- rawdata[rawdata$SPP == "form" "lat"]
 cbind(rawdata)
 
 head(rawdata)
-
-rawdata2 <- "rawdata"(-c[11:987])
 
 #going to sum up total counts for each fish
 
@@ -83,8 +79,44 @@ wonder_woman <- cbind(wonder_woman, form_fish_average)
 
 mean(tippie$SEC1)
 
-tippie2 <- rbind(tippie2, lapply(tippie2[5:14], mean(x)))
+tippie2 <- cbind(tippie2, lapply(tippie2[5:14], mean))
+tippie2
+
+Total_count_lat <- rowSums(tippie[5:14])
+Total_count_form <- rowSums(wonder_woman[5:14])
+
+tippie <- cbind(tippie, Total_count_lat)
+wonder_woman <- cbind(wonder_woman, Total_count_form)
+
+percent_individual <- lapply(tippie[5:14], function(x) {x/Total_count_lat}) 
+Percent_individual_form <- lapply(wonder_woman[5:14], function(x) {x/Total_count_form})
+
+tippie <- cbind(tippie, percent_individual)
+wonder_woman <- cbind(wonder_woman, Percent_individual_form)
+
+things <- apply(tippie[18:27], 2, mean)
+things2 <- apply(tippie[18:27],2, mean)
+stuffs2 <- apply(wonder_woman[18:27], 2, mean)
+
+percent_lat <- things2*100
+percent_form <- stuffs2*100
+
+
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+ggplot_frame2 <- data.frame(x, percent_lat, percent_form)
+
 
                  
-                 
- ```
+```
+
+
+
+```{r}
+
+library(ggplot2)
+
+ggplot(data = ggplot_frame2,  aes(x = x)) + geom_line(aes(y = percent_form, color = "amazon")) + geom_line(aes(y = percent_lat, color = "sailfin")) + xlab("Section Number") + ylab("Percent Frequency") + ggtitle("Predator Inspection & Sociability") + geom_point(aes(y = percent_form, color = "amazon")) + geom_point(aes(y = percent_lat, color = "sailfin")) + scale_x_continuous(breaks = scales::pretty_breaks(n = 10))
+
+
+```
